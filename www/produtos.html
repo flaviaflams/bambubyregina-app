@@ -1,0 +1,66 @@
+<!-- produtos.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://vendas-bambuby-regina-e2au.vercel.app 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  <title>Cadastro de Produtos - BambuByRegina</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/produtos.css" />
+</head>
+<body>
+  <header class="navbar">
+    <img src="img/logo.png" alt="Logo" class="logo destaque-logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="produtos.html" class="ativo">Produtos</a>
+      <a href="vendas.html">Vendas</a>
+      <a href="relatorio.html">Relatórios</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <h2>Cadastro de Produtos</h2>
+
+    <form id="formProduto">
+      <label>Nome*: <input type="text" id="nome" required /></label>
+      <label>Descrição: <input type="text" id="descricao" /></label>
+      <label>Preço*: <input type="number" id="preco" step="0.01" required /></label>
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <hr>
+    
+    <h3>Produtos Cadastrados</h3>
+    <table class="tabela-produtos">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+          <th colspan="2">Opções</th>
+        </tr>
+      </thead>
+
+      <tbody id="listaProdutos"></tbody>
+    </table>
+  </main>
+
+  <div id="editModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3>Editar Produto</h3>
+      <label>Nome*: <input type="text" id="edit-nome" required /></label>
+      <label>Descrição: <input type="text" id="edit-descricao" /></label>
+      <label>Preço*: <input type="number" id="edit-preco" step="0.01" required /></label>
+      <div class="modal-buttons">
+        <button id="saveEditBtn" class="btn-salvar-edicao">Salvar Alterações</button>
+        <button id="cancelEditBtn" class="btn-cancelar-edicao">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/db.js"></script>
+  <script src="js/produtos.js"></script>
+</body>
+</html>

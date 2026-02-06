@@ -1,0 +1,54 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://vendas-bambuby-regina-e2au.vercel.app 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  <title>Início - BambuByRegina</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <img src="img/logo.png" alt="Logo" class="logo destaque-logo" />
+    <nav>
+      <a href="index.html" class="ativo">Home</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="vendas.html">Vendas</a>
+      <a href="relatorio.html">Relatórios</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <div class="banner" style="background-image: url('img/bambus.jpg'); background-size: cover; background-position: center; padding: 60px 20px; color: white; text-align: center;">
+      <h1>BambuByRegina</h1>
+      <h2 class="subtitulo-banner">Controle de vendas e produtos</h2>
+    </div>
+
+    <section class="metricas-container">
+      <h2>Métricas do Mês</h2>
+      <div class="metricas">
+        <div class="box">
+          <h3>Itens Vendidos no Mês</h3>
+          <p id="totalItens">0</p>
+        </div>
+        <div class="box">
+          <h3>Faturamento do Mês</h3>
+          <p id="totalFaturado">R$ 0,00</p>
+        </div>
+        <div class="box ranking-box">
+          <h3>Ranking por Quantidade de Vendas</h3>
+          <ol id="rankingQuantidade"></ol>
+        </div>
+        <div class="box ranking-box">
+          <h3>Ranking por Valor Total Vendido</h3>
+          <ol id="rankingValor"></ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/db.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

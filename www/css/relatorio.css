@@ -1,0 +1,137 @@
+.conteudo {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2,
+h3 {
+  color: var(--cor-secundaria);
+  text-align: center;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.filtros label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.filtros input,
+.filtros select,
+.filtros button {
+  padding: 8px;
+  font-size: 1em;
+}
+
+.filtros button {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.filtros button:hover {
+  background-color: var(--cor-secundaria);
+}
+
+.tabela-relatorios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tabela-relatorios th,
+.tabela-relatorios td {
+  border: 1px solid var(--cor-borda-secundaria);
+  padding: 8px;
+  text-align: left;
+}
+
+.tabela-relatorios th {
+  background-color: var(--cor-fundo-tabela-cabecalho);
+  text-align: center;
+}
+
+.resumo {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.resumo p {
+  margin: 5px 0;
+}
+
+/* --- Estilos Responsivos --- */
+@media (max-width: 600px) {
+  .filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filtros label {
+    margin-bottom: 5px;
+  }
+
+  .filtros button {
+    margin-left: 0;
+  }
+
+  .tabela-relatorios {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .tabela-relatorios thead,
+  .tabela-relatorios tbody,
+  .tabela-relatorios th,
+  .tabela-relatorios td,
+  .tabela-relatorios tr {
+    display: block;
+  }
+
+  .tabela-relatorios thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .tabela-relatorios tr {
+    border: 1px solid var(--cor-borda-secundaria);
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tabela-relatorios td {
+    border: none;
+    border-bottom: 1px solid var(--cor-borda-tabela);
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  .tabela-relatorios td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+}

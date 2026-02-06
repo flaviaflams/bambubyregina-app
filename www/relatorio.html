@@ -1,0 +1,71 @@
+<!-- relatorio.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://vendas-bambuby-regina-e2au.vercel.app 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  <title>Relatórios de Vendas - BambuByRegina</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/relatorio.css" />
+</head>
+<body>
+  <header class="navbar">
+    <img src="img/logo.png" alt="Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="vendas.html">Vendas</a>
+      <a href="relatorio.html" class="ativo">Relatórios</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <h2>Relatório de Vendas</h2>
+
+    <section class="filtros">
+      <label>
+        Produto:
+        <select id="filtroProduto">
+          <option value="">Todos</option>
+        </select>
+      </label>
+      <label>
+        Data de Início:
+        <input type="date" id="filtroDataInicio" />
+      </label>
+      <label>
+        Data de Término:
+        <input type="date" id="filtroDataFim" />
+      </label>
+       <button onclick="filtrarRelatorio()">Filtrar</button>
+  <button onclick="exportarExcel()">Exportar Excel</button>
+    </section>
+
+    <h3>Vendas Registradas</h3>
+    <table class="tabela-relatorios">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Preço Unitário</th>
+          <th>Quantidade</th>
+          <th>Data</th>
+          <th>Valor Total</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaRelatorio">
+        <!-- Vendas aparecerão aqui -->
+      </tbody>
+    </table>
+
+    <div class="resumo">
+      <p><strong>Total de Itens:</strong> <span id="totalItens">0</span></p>
+      <p><strong>Total Vendido:</strong> R$ <span id="totalValor">0.00</span></p>
+    </div>
+  </main>
+
+  <script src="js/db.js"></script>
+  <script src="js/relatorio.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!-- vendas.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://vendas-bambuby-regina-e2au.vercel.app 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  <title>Registro de Vendas - BambuByRegina</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/vendas.css" />
+</head>
+<body>
+  <header class="navbar">
+    <img src="img/logo.png" alt="Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="vendas.html" class="ativo">Vendas</a>
+      <a href="relatorio.html">Relatório</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <h2>Registrar Vendas</h2>
+    <form id="formVendas">
+      <label>Data da Venda:
+        <input type="date" id="dataVenda" required />
+      </label>
+      <div id="listaProdutosVenda"></div>
+      <button type="submit" class="btn-registrar">Registrar Venda</button>
+    </form>
+
+    <h3>Vendas Registradas</h3>
+    <table class="tabela-vendas">
+      <thead>
+        <tr>
+          <th>Transação</th>
+          <th>Produtos</th>
+          <th>Quantidade de Itens</th>
+          <th>Valor Total</th>
+          <th>Data</th>
+          <th>Opções</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaVendas">
+        </tbody>
+    </table>
+  </main>
+
+  <div id="modalEdicaoTransacao" class="modal">
+    <div class="modal-conteudo">
+      <span class="fechar-modal" onclick="fecharModalEdicao()">&times;</span>
+      <h2>Editar Transação <span id="idTransacaoModal"></span></h2>
+      <label for="dataVendaModal">Data da Venda:</label>
+      <input type="date" id="dataVendaModal" required />
+
+      <h3>Produtos da Transação:</h3>
+      <div id="produtosTransacaoModal">
+        </div>
+      
+      <button type="button" class="btn-adicionar-produto" onclick="adicionarProdutoModal()">Adicionar Outro Produto</button>
+      
+      <div id="listaTodosProdutosModal" style="display: none; border: 1px solid #ccc; padding: 10px; margin-top: 10px;">
+        <h4>Adicionar Produto Existente:</h4>
+        <div id="todosProdutosDisponiveis">
+          </div>
+      </div>
+
+      <button type="button" class="btn-salvar" onclick="salvarEdicaoTransacao()">Salvar Alterações</button>
+    </div>
+  </div>
+
+  <script src="js/db.js"></script>
+  <script src="js/vendas.js"></script>
+</body>
+</html>
